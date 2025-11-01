@@ -1,8 +1,13 @@
 let tableau = []
+let nomAleatoire;
 const ajouterNomBtn = document.getElementById("ajouterNomBtn")
 const MyListe = document.getElementById("MyListe")
 
 const popupMessageBtn = document.getElementById("popupMessageBtn")
+const popupMessage = document.getElementById("popupMessage");
+const popupDiv = document.getElementById("popupDiv")
+
+const closePopupBtn =  document.getElementById("closePopupBtn")
 
 
 ajouterNomBtn.addEventListener("click", function AjouterNom(){
@@ -17,25 +22,28 @@ ajouterNomBtn.addEventListener("click", function AjouterNom(){
 })
 
 
-
-
-
-
-
-
-popupMessageBtn.addEventListener("click", function ChoisirNom() {
-      const nomAleatoire = tableau[Math.floor(Math.random() * tableau.length)]
-      const closePopupBtn = document.getElementById("closePopupBtn")
-
-      const popupMessage = document.getElementById("popupMessage");
+popupMessageBtn.addEventListener("click", function ChoisirNomPopup() {
+      nomAleatoire = tableau[Math.floor(Math.random() * tableau.length)]
+      
       popupMessage.textContent = `le nom choisi est : ${nomAleatoire}`;
-      closePopupBtn.style.display = "none";
+      popupDiv.style.display = "block"
 
-
-
-
-   
+        
 })
+
+closePopupBtn.addEventListener("click", function RetirerNomChoisi() {
+      tableau = tableau.filter(index => index !== nomAleatoire);
+      const listeItems = MyListe.getElementsByTagName("li");
+      for(let i =0; i<listeItems.length ; i++){
+            if(listeItems[i].textContent === nomAleatoire){
+                  listeItems[i].remove();
+                  break
+            }
+      }
+      //console.log(nomAleatoire)
+})
+
+
 
 
 
