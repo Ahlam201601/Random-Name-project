@@ -25,7 +25,16 @@ ajouterNomBtn.addEventListener("click", function AjouterNom(){
 
 popupMessageBtn.addEventListener("click", function ChoisirNom() {
       const nomAleatoire = tableau[Math.floor(Math.random() * tableau.length)]
-      //console.log(nomAleatoire);
+      const closePopupBtn = document.getElementById("closePopupBtn")
+
+      const popupMessage = document.getElementById("popupMessage");
+      popupMessage.textContent = `le nom choisi est : ${nomAleatoire}`;
+      closePopupBtn.style.display = "none";
+
+
+
+
+   
 })
 
 
