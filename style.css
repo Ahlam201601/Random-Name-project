@@ -112,3 +112,7 @@ button:hover {
   background: #e60000;
   transform: scale(1.1);
 }
+
+.classVide{
+  color: red;
+}

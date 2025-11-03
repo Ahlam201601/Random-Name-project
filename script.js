@@ -2,6 +2,7 @@ let tableau = []
 let nomAleatoire;
 const ajouterNomBtn = document.getElementById("ajouterNomBtn")
 const MyListe = document.getElementById("MyListe")
+const vide = document.getElementById("vide")
 
 const popupMessageBtn = document.getElementById("popupMessageBtn")
 const popupMessage = document.getElementById("popupMessage");
@@ -14,7 +15,10 @@ ajouterNomBtn.addEventListener("click", function AjouterNom(){
 
       const li = document.createElement("li")
       const text = document.getElementById("text").value
-      if (text === "") return;
+      if (text === "") {
+           vide.textContent = " saisir un valeur"
+
+      };
       tableau.push(text);
       MyListe.appendChild(li).innerHTML = text
       //console.log(tableau);   
